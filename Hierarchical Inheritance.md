@@ -28,13 +28,75 @@ To write a Python program to get the employee and doctor details and display the
 
 ### PROGRAM
 ```
+# Parent class Details
+class Details:
+    def __init__(self, id, name, gender):
+        self.id = id
+        self.name = name
+        self.gender = gender
+
+    def display_details(self):
+        print(f"ID: {self.id}")
+        print(f"Name: {self.name}")
+        print(f"Gender: {self.gender}")
+
+# Child class Employee inheriting from Details
+class Employee(Details):
+    def __init__(self, id, name, gender, company, department):
+        super().__init__(id, name, gender)
+        self.company = company
+        self.department = department
+
+    def display_details(self):
+        super().display_details()
+        print(f"Company: {self.company}")
+        print(f"Department: {self.department}")
+
+# Child class Doctor inheriting from Details
+class Doctor(Details):
+    def __init__(self, id, name, gender, hospital, specialization):
+        super().__init__(id, name, gender)
+        self.hospital = hospital
+        self.specialization = specialization
+
+    def display_details(self):
+        super().display_details()
+        print(f"Hospital: {self.hospital}")
+        print(f"Specialization: {self.specialization}")
+
+# Main program
+# Accept input for Employee
+print("Enter Employee Details:")
+emp_id = input("ID: ")
+emp_name = input("Name: ")
+emp_gender = input("Gender: ")
+emp_company = input("Company: ")
+emp_department = input("Department: ")
+
+# Create Employee object
+employee = Employee(emp_id, emp_name, emp_gender, emp_company, emp_department)
+print("\nEmployee Details:")
+employee.display_details()
+
+# Accept input for Doctor
+print("\nEnter Doctor Details:")
+doc_id = input("ID: ")
+doc_name = input("Name: ")
+doc_gender = input("Gender: ")
+doc_hospital = input("Hospital: ")
+doc_specialization = input("Specialization: ")
+
+# Create Doctor object
+doctor = Doctor(doc_id, doc_name, doc_gender, doc_hospital, doc_specialization)
+print("\nDoctor Details:")
+doctor.display_details()
 
 
 ```
 
 ### OUTPUT  
-
-(Output Screenshot)  
-
-
+![image](https://github.com/user-attachments/assets/d753e319-71af-4622-bbd5-3e5d58db56cf)
 ### RESULT
+Thus, the Python program demonstrating Hierarchical Inheritance with Details, Employee, and Doctor classes was successfully written and executed.
+
+
