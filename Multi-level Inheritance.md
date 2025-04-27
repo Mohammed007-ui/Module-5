@@ -39,10 +39,41 @@ To write a Python program to get the name, age, and ID of a person and display t
 ### PROGRAM
 
 ```
+# Parent class Person
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
+# Intermediate class PersonDetails inheriting from Person
+class PersonDetails(Person):
+    def __init__(self, name, age, person_id):
+        super().__init__(name, age)  # Call Person's constructor
+        self.person_id = person_id
 
+# Child class DisplayDetails inheriting from PersonDetails
+class DisplayDetails(PersonDetails):
+    def __init__(self, name, age, person_id):
+        super().__init__(name, age, person_id)  # Call PersonDetails' constructor
+
+    def show_details(self):
+        return f"Name: {self.name}, Age: {self.age}, Person ID: {self.person_id}"
+
+# Main program
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+person_id = int(input("Enter person ID: "))
+
+# Create an object of DisplayDetails
+person = DisplayDetails(name, age, person_id)
+
+# Display the details
+print("\nPerson Details:")
+print(person.show_details())
 ```
 
 ### OUTPUT
+![image](https://github.com/user-attachments/assets/ed3d6b33-5650-4b28-a11b-486fa4458b0e)
 
 ### RESULT
+Thus, the Python program demonstrating Multi-level Inheritance using the Person, PersonDetails, and DisplayDetails classes was successfully written and executed.
