@@ -32,13 +32,47 @@ To write a Python program to get the name, attendance, and ID of a student and c
 ### PROGRAM
 
 ```
+# Base class Student
+class Student:
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+
+    def get_student_info(self):
+        return f"Student Name: {self.name}, Student ID: {self.student_id}"
+
+# Derived class Attendance inheriting from Student
+class Attendance(Student):
+    def __init__(self, name, student_id, attendance):
+        super().__init__(name, student_id)  # Call the parent class constructor
+        self.attendance = attendance
+
+    def check_eligibility(self):
+        if self.attendance > 80:
+            return f"{self.name} is eligible for the next module exam."
+        else:
+            return f"{self.name} is not eligible for the next module exam."
+
+# Main program
+name = input("Enter student name: ")
+student_id = int(input("Enter student ID: "))
+attendance = int(input("Enter student attendance percentage: "))
+
+# Create an object of Attendance class
+student = Attendance(name, student_id, attendance)
+
+# Print the eligibility status
+print(student.check_eligibility())
 
 ```
 
 ### OUTPUT
 
+![image](https://github.com/user-attachments/assets/04db6385-28f5-479f-b1eb-c18270a8cc32)
 
 ### RESULT
+Thus, the Python program demonstrating Multiple Inheritance to get the student details and check eligibility for the next module was successfully implemented and executed.
+
 
 
 
