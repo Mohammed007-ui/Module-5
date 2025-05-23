@@ -28,13 +28,72 @@ To write a Python program to get the employee and doctor details and display the
 
 ### PROGRAM
 ```
+class Details:
+    def __init__(self, id, name, gender):
+        self.id = id
+        self.name = name
+        self.gender = gender
+
+    def display_details(self):
+        print(f"ID: {self.id}")
+        print(f"Name: {self.name}")
+        print(f"Gender: {self.gender}")
+
+class Employee(Details):
+    def __init__(self, id, name, gender, company, department):
+        super().__init__(id, name, gender)
+        self.company = company
+        self.department = department
+
+    def display_details(self):
+        print("\n--- Employee Details ---")
+        super().display_details()
+        print(f"Company: {self.company}")
+        print(f"Department: {self.department}")
+
+class Doctor(Details):
+    def __init__(self, id, name, gender, hospital, department):
+        super().__init__(id, name, gender)
+        self.hospital = hospital
+        self.department = department
+
+    def display_details(self):
+        print("\n--- Doctor Details ---")
+        super().display_details()
+        print(f"Hospital: {self.hospital}")
+        print(f"Department: {self.department}")
+
+# Input for Employee
+eid = input("Enter Employee ID: ")
+ename = input("Enter Employee Name: ")
+egender = input("Enter Employee Gender: ")
+ecompany = input("Enter Company Name: ")
+edepartment = input("Enter Employee Department: ")
+
+# Input for Doctor
+did = input("Enter Doctor ID: ")
+dname = input("Enter Doctor Name: ")
+dgender = input("Enter Doctor Gender: ")
+dhospital = input("Enter Hospital Name: ")
+ddepartment = input("Enter Doctor Department: ")
+
+# Create objects
+emp = Employee(eid, ename, egender, ecompany, edepartment)
+doc = Doctor(did, dname, dgender, dhospital, ddepartment)
+
+# Display details
+emp.display_details()
+doc.display_details()
 
 
 ```
 
 ### OUTPUT  
 
-(Output Screenshot)  
+
+![image](https://github.com/user-attachments/assets/7d124ac2-9871-4a2b-bdc9-0775c2bb3497)
 
 
 ### RESULT
+Thus, the Python program demonstrating hierarchical inheritance using a base class Details and derived classes Employee and Doctor was successfully implemented and executed.
+
