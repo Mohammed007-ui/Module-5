@@ -39,10 +39,39 @@ To write a Python program to get the name, age, and ID of a person and display t
 ### PROGRAM
 
 ```
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class PersonDetails(Person):
+    def __init__(self, name, age, person_id):
+        super().__init__(name, age)
+        self.person_id = person_id
+
+class DisplayDetails(PersonDetails):
+    def __init__(self, name, age, person_id):
+        super().__init__(name, age, person_id)
+
+    def show_details(self):
+        return f"\nName: {self.name}\nAge: {self.age}\nPerson ID: {self.person_id}"
+
+# Input from user
+name = input("Enter Name: ")
+age = int(input("Enter Age: "))
+person_id = int(input("Enter Person ID: "))
+
+# Create object
+person = DisplayDetails(name, age, person_id)
+
+# Display details
+print(person.show_details())
 
 
 ```
 
 ### OUTPUT
+![image](https://github.com/user-attachments/assets/63a70321-a9d7-491f-bb90-41b6122e504d)
 
 ### RESULT
+Thus, the Python program demonstrating multi-level inheritance using the classes Person, PersonDetails, and DisplayDetails was successfully implemented and executed.
